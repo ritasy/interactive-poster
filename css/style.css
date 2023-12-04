@@ -1,0 +1,157 @@
+body {
+
+  margin: 0;
+  padding: 0;
+  background-color: #1c1c1c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+}
+
+#poster-container {
+  font-family: 'Abril Fatface', serif;
+  position: relative;
+  text-align: center;
+  width: 500px;
+  height: 700px;
+  border: 10px solid #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-top: 50px; 
+}
+
+.moving-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff4d4d, #4d4dff, #4dff4d, #ff4d4d);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s infinite;
+  z-index: -1;
+}
+
+.poster-content {
+  position: relative;
+  z-index: 1;
+}
+
+.movable-letter {
+  display: inline-block;
+  font-size: 3em; 
+  margin: 0;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.movable-letter:hover {
+  animation: bounce 0.8s ease infinite alternate, rotate 0.5s ease-in-out infinite; 
+  color: #ff4d4d;
+}
+
+#mental-health-message {
+  color:rgb(255, 255, 255);
+  font-size: 1em;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 0.3s ease-in-out; 
+}
+
+#poster-container:hover #mental-health-message {
+  opacity: 1;
+  transform: scale(1.1); 
+}
+
+#happy-text {
+  font-size: 1.5em;
+  margin-top: 50px;
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
+  border: 2px solid #fff; 
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  max-width: 40%;
+  display: inline-block;
+  -webkit-user-select: none;
+  -ms-user-select: none; 
+  user-select: none;
+}
+
+#happy-text:hover {
+  background-color: #273a15;
+}
+
+#bottom-left-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px; 
+  height: auto; 
+  margin: 10px; 
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out; 
+}
+.image-hover {
+  transform: scale(2); 
+
+}
+
+#popup-image {
+  position: absolute;
+  z-index: 2;
+   width: 50%;
+  height: auto; 
+  display: none;
+  top: 34%;
+  left: -6%;
+}
+
+#slide-image {
+  position: absolute;
+  z-index: 2;
+   width: 50%;
+  height: auto; 
+  display: none;
+
+}
+
+
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes rotate {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
